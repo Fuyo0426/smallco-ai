@@ -1,0 +1,1064 @@
+<!DOCTYPE html>
+<html lang="zh-Hant" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>SmallCo Pilot AI — 台灣中小企業的 AI 日常運營系統</title>
+  <meta name="description" content="SyncOS 是台灣第一套中文優先的 AI 日常運營系統，為 5-50 人的中小企業設計。LINE 整合、零培訓、3 分鐘設定。加入等候名單享 3 個月免費。">
+  <meta property="og:title" content="SmallCo Pilot AI — 你的公司，每天自己會跑">
+  <meta property="og:description" content="台灣本土 AI 協作平台，比 Copilot 更懂台灣企業。加入等候名單，前 100 名享 3 個月免費。">
+  <meta property="og:type" content="website">
+  <meta property="og:image" content="https://smallco.ai/og-image.png">
+
+  <!-- Fonts -->
+  <link rel="stylesheet" href="https://rsms.me/inter/inter.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@400;500;700&display=swap" rel="stylesheet">
+
+  <!-- Tailwind CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            primary: {
+              50:  '#ECFDF5',
+              100: '#D1FAE5',
+              200: '#A7F3D0',
+              400: '#34D399',
+              500: '#10B981',
+              600: '#059669',
+              700: '#047857',
+              800: '#065F46',
+              900: '#064E3B',
+              950: '#022C22'
+            },
+            accent: {
+              400: '#FBBF24',
+              500: '#F59E0B',
+              600: '#D97706'
+            },
+            neutral: {
+              50:  '#FAFAF9',
+              100: '#F5F5F4',
+              200: '#E7E5E4',
+              300: '#D6D3D1',
+              400: '#A8A29E',
+              500: '#78716C',
+              600: '#57534E',
+              700: '#44403C',
+              800: '#292524',
+              900: '#1C1917',
+              950: '#0C0A09'
+            }
+          },
+          fontFamily: {
+            sans: ['"Inter var"', '"Noto Sans TC"', 'sans-serif'],
+          },
+        }
+      }
+    }
+  </script>
+
+  <!-- JSON-LD -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Organization",
+    "name": "SmallCo Pilot AI",
+    "description": "台灣中小企業的 AI 日常運營系統",
+    "url": "https://smallco.ai",
+    "contactPoint": {
+      "@type": "ContactPoint",
+      "email": "hello@syncOS.ai",
+      "contactType": "customer service"
+    }
+  }
+  </script>
+
+  <style>
+    :root {
+      font-family: 'Inter var', 'Noto Sans TC', sans-serif;
+      font-feature-settings: 'cv02', 'cv03', 'cv04', 'cv11';
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    /* Shadow tokens with warm tones */
+    .shadow-warm-sm {
+      box-shadow: 0 1px 3px rgba(12,10,9,0.06), 0 1px 2px rgba(12,10,9,0.04);
+    }
+    .shadow-warm-md {
+      box-shadow: 0 4px 12px rgba(12,10,9,0.08), 0 2px 4px rgba(12,10,9,0.04);
+    }
+    .shadow-warm-lg {
+      box-shadow: 0 8px 24px rgba(12,10,9,0.12), 0 4px 8px rgba(12,10,9,0.06);
+    }
+
+    /* Gradient backgrounds */
+    .bg-gradient-hero {
+      background: linear-gradient(135deg, #ECFDF5 0%, #F0FDF4 40%, #FFFBEB 100%);
+    }
+    .bg-gradient-waitlist {
+      background: linear-gradient(135deg, #022C22 0%, #064E3B 50%, #0C0A09 100%);
+    }
+
+    /* Animations */
+    @keyframes fadeUp {
+      from {
+        opacity: 0;
+        transform: translateY(20px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    .reveal {
+      opacity: 0;
+      transform: translateY(20px);
+    }
+
+    .reveal.visible {
+      animation: fadeUp 600ms cubic-bezier(0.22, 1, 0.36, 1) forwards;
+    }
+
+    /* Button interactions */
+    .btn-primary {
+      transition: background-color 200ms, transform 200ms;
+    }
+    .btn-primary:hover {
+      background-color: #D97706;
+      transform: scale(1.02);
+    }
+    .btn-primary:active {
+      transform: scale(0.98) translateY(1px);
+    }
+
+    .btn-secondary {
+      transition: transform 200ms, box-shadow 200ms;
+    }
+    .btn-secondary:hover {
+      transform: scale(1.02);
+    }
+    .btn-secondary:active {
+      transform: scale(0.98) translateY(1px);
+    }
+
+    .btn-emerald {
+      transition: background-color 200ms, transform 200ms;
+    }
+    .btn-emerald:hover {
+      background-color: #047857;
+      transform: scale(1.02);
+    }
+    .btn-emerald:active {
+      transform: scale(0.98) translateY(1px);
+    }
+
+    /* Card hover */
+    .card-hover {
+      transition: transform 300ms, box-shadow 300ms;
+    }
+    .card-hover:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 8px 24px rgba(12,10,9,0.12), 0 4px 8px rgba(12,10,9,0.06);
+    }
+
+    /* Focus ring */
+    a:focus-visible, button:focus-visible {
+      outline: 2px solid #059669;
+      outline-offset: 2px;
+      border-radius: 4px;
+    }
+
+    /* Mobile menu */
+    #mobile-menu {
+      display: none;
+    }
+    #mobile-menu.open {
+      display: block;
+    }
+
+    /* Stats countup */
+    .stat-number {
+      font-variant-numeric: tabular-nums;
+    }
+
+    /* Reduced motion */
+    @media (prefers-reduced-motion: reduce) {
+      .reveal {
+        opacity: 1;
+        transform: none;
+        animation: none;
+      }
+      .reveal.visible {
+        animation: none;
+      }
+      .btn-primary:hover,
+      .btn-secondary:hover,
+      .btn-emerald:hover,
+      .card-hover:hover {
+        transform: none;
+      }
+      html {
+        scroll-behavior: auto;
+      }
+    }
+
+    /* Table styling */
+    .comparison-table th,
+    .comparison-table td {
+      padding: 12px 16px;
+      text-align: center;
+      border-bottom: 1px solid #E7E5E4;
+      font-size: 14px;
+    }
+    .comparison-table th:first-child,
+    .comparison-table td:first-child {
+      text-align: left;
+    }
+    .comparison-table th {
+      font-weight: 550;
+      background-color: #F5F5F4;
+      color: #1C1917;
+    }
+    .comparison-table .col-smallco {
+      background-color: #ECFDF5;
+      color: #047857;
+      font-weight: 550;
+    }
+    .comparison-table th.col-smallco {
+      background-color: #D1FAE5;
+      color: #065F46;
+    }
+
+    /* Navbar active state */
+    .nav-link {
+      transition: color 200ms;
+    }
+    .nav-link:hover {
+      color: #059669;
+    }
+
+    /* Checklist items */
+    .checklist-item {
+      display: flex;
+      align-items: flex-start;
+      gap: 10px;
+      padding: 8px 0;
+    }
+    .checklist-check {
+      flex-shrink: 0;
+      width: 20px;
+      height: 20px;
+      border: 2px solid #D6D3D1;
+      border-radius: 4px;
+      margin-top: 1px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+  </style>
+</head>
+<body class="bg-white text-neutral-950 text-pretty">
+
+  <!-- Skip to content -->
+  <a href="#main-content" class="sr-only focus:not-sr-only focus:absolute focus:top-2 focus:left-2 focus:z-50 focus:px-4 focus:py-2 focus:bg-white focus:text-neutral-950 focus:rounded-lg focus:shadow-warm-md">
+    跳到主要內容
+  </a>
+
+  <!-- ============================================================
+       NAVBAR
+  ============================================================ -->
+  <nav class="sticky top-0 z-40 h-14 bg-white/90 backdrop-blur-sm border-b border-neutral-950/10" aria-label="主導覽">
+    <div class="max-w-7xl mx-auto px-6 h-full flex items-center gap-6">
+
+      <!-- Logo -->
+      <a href="#hero" class="flex items-center gap-2 shrink-0" aria-label="SmallCo 首頁">
+        <span class="inline-flex items-center justify-center w-7 h-7 rounded-md bg-primary-600 text-white text-xs font-bold tracking-tight">SC</span>
+        <span class="text-sm font-semibold text-neutral-950 tracking-tight">SmallCo</span>
+      </a>
+
+      <!-- Nav links (desktop) -->
+      <div class="hidden md:flex items-center gap-5">
+        <a href="#pain" class="nav-link text-sm text-neutral-600">問題</a>
+        <a href="#features" class="nav-link text-sm text-neutral-600">功能</a>
+        <a href="#why-us" class="nav-link text-sm text-neutral-600">為何選我們</a>
+        <a href="#audience" class="nav-link text-sm text-neutral-600">適合誰</a>
+        <a href="#about" class="nav-link text-sm text-neutral-600">關於我們</a>
+      </div>
+
+      <!-- CTA -->
+      <div class="ml-auto flex items-center gap-3">
+        <a
+          href="#waitlist"
+          class="btn-primary hidden sm:inline-flex items-center justify-center bg-accent-500 text-white rounded-full px-4 h-[28px] text-xs font-medium"
+        >
+          加入等候名單
+        </a>
+        <!-- Hamburger -->
+        <button
+          id="hamburger"
+          class="md:hidden p-2 rounded-lg text-neutral-600 hover:text-neutral-950 hover:bg-neutral-100 transition-colors"
+          aria-label="開啟選單"
+          aria-expanded="false"
+          aria-controls="mobile-menu"
+        >
+          <svg width="20" height="20" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.5">
+            <path d="M3 6h14M3 10h14M3 14h14"/>
+          </svg>
+        </button>
+      </div>
+    </div>
+
+    <!-- Mobile menu -->
+    <div id="mobile-menu" class="md:hidden border-t border-neutral-950/10 bg-white/95 backdrop-blur-sm">
+      <div class="max-w-7xl mx-auto px-6 py-4 flex flex-col gap-3">
+        <a href="#pain" class="nav-link text-sm text-neutral-700 py-2">問題</a>
+        <a href="#features" class="nav-link text-sm text-neutral-700 py-2">功能</a>
+        <a href="#why-us" class="nav-link text-sm text-neutral-700 py-2">為何選我們</a>
+        <a href="#audience" class="nav-link text-sm text-neutral-700 py-2">適合誰</a>
+        <a href="#about" class="nav-link text-sm text-neutral-700 py-2">關於我們</a>
+        <a href="#waitlist" class="btn-primary inline-flex items-center justify-center bg-accent-500 text-white rounded-full px-4 h-10 text-sm font-medium mt-2">
+          加入等候名單
+        </a>
+      </div>
+    </div>
+  </nav>
+
+  <!-- ============================================================
+       MAIN
+  ============================================================ -->
+  <main id="main-content">
+
+    <!-- ============================================================
+         SECTION 1 — HERO
+    ============================================================ -->
+    <section id="hero" class="bg-gradient-hero min-h-[80dvh] flex items-center py-24 md:py-32">
+      <div class="max-w-7xl mx-auto px-6 w-full">
+        <div class="max-w-[720px] mx-auto text-center">
+
+          <!-- Eyebrow -->
+          <p class="reveal font-mono text-xs uppercase tracking-wider text-neutral-500 mb-6">
+            SmallCo Pilot AI
+          </p>
+
+          <!-- H1 -->
+          <h1
+            class="reveal text-[36px] md:text-[56px] leading-[1.1] tracking-tight text-balance mb-6"
+            style="font-weight:550; animation-delay:100ms"
+          >
+            每天早上，你的公司<br>已經準備好了。
+          </h1>
+
+          <!-- Lead -->
+          <p
+            class="reveal text-base md:text-lg text-neutral-600 max-w-[40ch] mx-auto mb-8 leading-relaxed"
+            style="animation-delay:200ms"
+          >
+            SyncOS 是台灣第一套中文優先的 AI 日常運營系統。
+            開完會自動分配任務，訊息進來自動整理，
+            每天八點你不在，公司也在跑。
+          </p>
+
+          <!-- Early bird label -->
+          <p
+            class="reveal text-xs text-neutral-500 mb-6"
+            style="animation-delay:300ms"
+          >
+            限量早鳥名額 · 前 100 名享 3 個月免費 · 預計 1-2 個月後上架
+          </p>
+
+          <!-- CTA group -->
+          <div
+            class="reveal flex flex-col sm:flex-row items-center justify-center gap-3 mb-12"
+            style="animation-delay:400ms"
+          >
+            <a
+              href="#waitlist"
+              class="btn-primary inline-flex items-center justify-center bg-accent-500 text-white rounded-full px-6 h-[38px] text-sm font-medium"
+            >
+              加入等候名單，享 3 個月免費 →
+            </a>
+            <span class="inline-flex p-px rounded-full shadow-warm-sm">
+              <a
+                href="#features"
+                class="btn-secondary inline-flex items-center justify-center rounded-full ring-1 ring-neutral-950/10 bg-white text-neutral-950 px-6 h-[38px] text-sm font-medium"
+              >
+                了解五大模組
+              </a>
+            </span>
+          </div>
+
+          <!-- Social proof bar -->
+          <div
+            class="reveal flex flex-wrap items-center justify-center gap-4 md:gap-8 text-sm text-neutral-600"
+            style="animation-delay:500ms"
+          >
+            <span class="flex items-center gap-1.5">
+              <svg width="16" height="16" viewBox="0 0 16 16" fill="currentColor" class="text-primary-500 shrink-0"><path d="M8 1L10.09 5.26L14.73 6L11.36 9.28L12.18 14L8 11.77L3.82 14L4.64 9.28L1.27 6L5.91 5.26L8 1Z"/></svg>
+              零培訓成本
+            </span>
+            <span class="flex items-center gap-1.5">
+              <svg width="16" height="16" viewBox="0 0 16 16" fill="currentColor" class="text-primary-500 shrink-0"><path d="M8 1L10.09 5.26L14.73 6L11.36 9.28L12.18 14L8 11.77L3.82 14L4.64 9.28L1.27 6L5.91 5.26L8 1Z"/></svg>
+              中文介面
+            </span>
+            <span class="flex items-center gap-1.5">
+              <svg width="16" height="16" viewBox="0 0 16 16" fill="currentColor" class="text-primary-500 shrink-0"><path d="M8 1L10.09 5.26L14.73 6L11.36 9.28L12.18 14L8 11.77L3.82 14L4.64 9.28L1.27 6L5.91 5.26L8 1Z"/></svg>
+              LINE 生態整合
+            </span>
+            <span class="flex items-center gap-1.5">
+              <svg width="16" height="16" viewBox="0 0 16 16" fill="currentColor" class="text-primary-500 shrink-0"><path d="M8 1L10.09 5.26L14.73 6L11.36 9.28L12.18 14L8 11.77L3.82 14L4.64 9.28L1.27 6L5.91 5.26L8 1Z"/></svg>
+              3 分鐘完成設定
+            </span>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================================================
+         SECTION 2 — PAIN POINTS
+    ============================================================ -->
+    <section id="pain" class="bg-neutral-50 py-24 md:py-32">
+      <div class="max-w-7xl mx-auto px-6">
+
+        <!-- Eyebrow -->
+        <p class="reveal font-mono text-xs uppercase tracking-wider text-neutral-500 mb-4">Pain Points</p>
+
+        <!-- Section heading -->
+        <p class="reveal text-[28px] md:text-[40px] leading-[1.15] tracking-tight max-w-[40ch] mb-12" style="font-weight:550; animation-delay:100ms">
+          <span class="text-neutral-950">你是不是也覺得，</span>
+          <span class="text-neutral-500 font-medium"> 每天都在救火？台灣 171 萬家中小企業，98% 沒有專職 COO。老闆一個人，同時扮演業務、PM、客服、還要管帳。</span>
+        </p>
+
+        <!-- 2x2 grid cards -->
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-2 mb-10">
+
+          <!-- Card 1 -->
+          <div class="reveal card-hover bg-white rounded-2xl p-6 ring-1 ring-neutral-950/10" style="animation-delay:200ms">
+            <div class="mb-3">
+              <span class="inline-flex items-center justify-center w-10 h-10 rounded-xl bg-neutral-100 text-2xl">🕳️</span>
+            </div>
+            <h3 class="text-[20px] md:text-[24px] leading-[1.35] tracking-tight mb-2" style="font-weight:550">開完會，誰負責什麼？</h3>
+            <p class="text-sm md:text-base text-neutral-600 leading-relaxed max-w-[65ch]">
+              會議結束的那一秒，任務就開始消失。「這件事我以為你在處理耶。」每天上演。
+            </p>
+          </div>
+
+          <!-- Card 2 -->
+          <div class="reveal card-hover bg-white rounded-2xl p-6 ring-1 ring-neutral-950/10" style="animation-delay:300ms">
+            <div class="mb-3">
+              <span class="inline-flex items-center justify-center w-10 h-10 rounded-xl bg-neutral-100 text-2xl">🏝️</span>
+            </div>
+            <h3 class="text-[20px] md:text-[24px] leading-[1.35] tracking-tight mb-2" style="font-weight:550">員工離職，知識一起帶走</h3>
+            <p class="text-sm md:text-base text-neutral-600 leading-relaxed max-w-[65ch]">
+              SOP 在他腦子裡、客戶喜好在她的 LINE 裡。下一個新人，一切從零開始。
+            </p>
+          </div>
+
+          <!-- Card 3 -->
+          <div class="reveal card-hover bg-white rounded-2xl p-6 ring-1 ring-neutral-950/10" style="animation-delay:400ms">
+            <div class="mb-3">
+              <span class="inline-flex items-center justify-center w-10 h-10 rounded-xl bg-neutral-100 text-2xl">🌊</span>
+            </div>
+            <h3 class="text-[20px] md:text-[24px] leading-[1.35] tracking-tight mb-2" style="font-weight:550">LINE、Gmail、IG，50 則未讀</h3>
+            <p class="text-sm md:text-base text-neutral-600 leading-relaxed max-w-[65ch]">
+              早上一開手機，四個 App 都在響。哪個要回、哪個要跟、你自己也不確定。
+            </p>
+          </div>
+
+          <!-- Card 4 -->
+          <div class="reveal card-hover bg-white rounded-2xl p-6 ring-1 ring-neutral-950/10" style="animation-delay:500ms">
+            <div class="mb-3">
+              <span class="inline-flex items-center justify-center w-10 h-10 rounded-xl bg-neutral-100 text-2xl">🚒</span>
+            </div>
+            <h3 class="text-[20px] md:text-[24px] leading-[1.35] tracking-tight mb-2" style="font-weight:550">每天都在救火</h3>
+            <p class="text-sm md:text-base text-neutral-600 leading-relaxed max-w-[65ch]">
+              業務靠老闆追、進度靠人工記、問題靠喊話處理。公司大一點，就開始亂。
+            </p>
+          </div>
+
+        </div>
+
+        <!-- Bottom CTA -->
+        <div class="reveal flex" style="animation-delay:600ms">
+          <a
+            href="#waitlist"
+            class="btn-emerald inline-flex items-center justify-center bg-primary-600 text-white rounded-full px-6 h-[38px] text-sm font-medium"
+          >
+            是的，我要解決這些問題 →
+          </a>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ============================================================
+         SECTION 3 — FEATURES (BENTO GRID)
+    ============================================================ -->
+    <section id="features" class="bg-white py-24 md:py-32">
+      <div class="max-w-7xl mx-auto px-6">
+
+        <!-- Eyebrow -->
+        <p class="reveal font-mono text-xs uppercase tracking-wider text-neutral-500 mb-4">Features</p>
+
+        <!-- Section heading -->
+        <p class="reveal text-[28px] md:text-[40px] leading-[1.15] tracking-tight max-w-[40ch] mb-12" style="font-weight:550; animation-delay:100ms">
+          <span class="text-neutral-950">五個模組，</span>
+          <span class="text-neutral-500 font-medium"> 讓公司每天自己運轉。不需要更換工具，不需要培訓員工改習慣。SmallCo OS 接進你的現有流程，AI 在後面默默工作。</span>
+        </p>
+
+        <!-- Bento Grid: Row 1 — 2/3 + 1/3 -->
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-2 mb-2">
+
+          <!-- Module 1: Inbox Hub (2/3) -->
+          <div class="reveal card-hover md:col-span-2 bg-neutral-950/[.05] rounded-2xl ring-1 ring-inset ring-neutral-950/[.05] p-6 md:p-8" style="animation-delay:200ms">
+            <p class="font-mono text-xs uppercase tracking-wider text-neutral-500 mb-3">多管道訊息整合</p>
+            <h3 class="text-[22px] md:text-[24px] leading-[1.35] tracking-tight mb-3" style="font-weight:550">Inbox Hub</h3>
+            <p class="text-sm md:text-base text-neutral-600 leading-relaxed max-w-[65ch] mb-4">
+              LINE、Gmail、Instagram、Facebook 訊息全部匯進來，AI 自動分類待回覆、待追蹤、待處理。不用開 4 個 App，不會遺漏任何一則。
+            </p>
+            <p class="text-xs text-neutral-400">支援 LINE 官方帳號 · Gmail · FB/IG DM</p>
+          </div>
+
+          <!-- Module 2: Task Flow (1/3) -->
+          <div class="reveal card-hover bg-neutral-950/[.05] rounded-2xl ring-1 ring-inset ring-neutral-950/[.05] p-6" style="animation-delay:300ms">
+            <p class="font-mono text-xs uppercase tracking-wider text-neutral-500 mb-3">對話轉任務</p>
+            <h3 class="text-[20px] md:text-[24px] leading-[1.35] tracking-tight mb-3" style="font-weight:550">Task Flow</h3>
+            <p class="text-sm text-neutral-600 leading-relaxed">
+              對話中的需求、承諾、問題，AI 自動轉成任務卡，可指派、可追蹤、不漏接。
+            </p>
+          </div>
+
+        </div>
+
+        <!-- Bento Grid: Row 2 — 1/3 + 1/3 + 2/3 -->
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-2">
+
+          <!-- Module 3: Content Engine (1/3) -->
+          <div class="reveal card-hover bg-neutral-950/[.05] rounded-2xl ring-1 ring-inset ring-neutral-950/[.05] p-6" style="animation-delay:400ms">
+            <p class="font-mono text-xs uppercase tracking-wider text-neutral-500 mb-3">穩定內容輸出</p>
+            <h3 class="text-[20px] md:text-[24px] leading-[1.35] tracking-tight mb-3" style="font-weight:550">Content Engine</h3>
+            <p class="text-sm text-neutral-600 leading-relaxed">
+              建立主題、模板、FAQ 庫，讓 AI 幫你持續輸出貼文、回覆、提案。
+            </p>
+          </div>
+
+          <!-- Module 4: SOP Brain (1/3) -->
+          <div class="reveal card-hover bg-neutral-950/[.05] rounded-2xl ring-1 ring-inset ring-neutral-950/[.05] p-6" style="animation-delay:500ms">
+            <p class="font-mono text-xs uppercase tracking-wider text-neutral-500 mb-3">新人即刻上手</p>
+            <h3 class="text-[20px] md:text-[24px] leading-[1.35] tracking-tight mb-3" style="font-weight:550">SOP Brain</h3>
+            <p class="text-sm text-neutral-600 leading-relaxed">
+              把流程、作法、眉角全部存進知識庫，新人問 AI，老人省時間。
+            </p>
+          </div>
+
+          <!-- Module 5: Daily Brief (2/3) -->
+          <div class="reveal card-hover bg-neutral-950/[.05] rounded-2xl ring-1 ring-inset ring-neutral-950/[.05] p-6 md:p-8" style="animation-delay:600ms">
+            <p class="font-mono text-xs uppercase tracking-wider text-neutral-500 mb-3">每天 8 點，AI 替你整理好</p>
+            <h3 class="text-[20px] md:text-[24px] leading-[1.35] tracking-tight mb-3" style="font-weight:550">Daily Brief</h3>
+            <p class="text-sm md:text-base text-neutral-600 leading-relaxed max-w-[65ch]">
+              每天早上自動彙整昨日重點、今日待辦、關鍵提醒。打開手機的第一秒，你已經知道今天最重要的事。
+            </p>
+          </div>
+
+        </div>
+
+        <!-- Bottom CTA -->
+        <div class="reveal flex mt-8" style="animation-delay:700ms">
+          <span class="inline-flex p-px rounded-full shadow-warm-sm">
+            <a
+              href="#waitlist"
+              class="btn-secondary inline-flex items-center justify-center rounded-full ring-1 ring-neutral-950/10 bg-white text-neutral-950 px-6 h-[38px] text-sm font-medium"
+            >
+              搶先試用 SmallCo OS →
+            </a>
+          </span>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ============================================================
+         SECTION 4 — WHY US
+    ============================================================ -->
+    <section id="why-us" class="bg-neutral-50 py-24 md:py-32">
+      <div class="max-w-7xl mx-auto px-6">
+
+        <!-- Eyebrow -->
+        <p class="reveal font-mono text-xs uppercase tracking-wider text-neutral-500 mb-4">Why SmallCo</p>
+
+        <!-- Section heading -->
+        <p class="reveal text-[28px] md:text-[40px] leading-[1.15] tracking-tight max-w-[40ch] mb-12" style="font-weight:550; animation-delay:100ms">
+          <span class="text-neutral-950">你已經試過很多工具了，</span>
+          <span class="text-neutral-500 font-medium"> 對嗎？ Notion 太複雜、Slack 太多雜訊、Copilot 看不懂台灣脈絡。SmallCo 不是又一個工具，是幫你把工具整合起來的 AI 幕僚。</span>
+        </p>
+
+        <!-- Comparison table -->
+        <div class="reveal overflow-x-auto rounded-2xl ring-1 ring-neutral-950/10 bg-white shadow-warm-sm mb-10" style="animation-delay:200ms">
+          <table class="comparison-table w-full min-w-[600px]">
+            <thead>
+              <tr>
+                <th class="rounded-tl-2xl"></th>
+                <th>Notion</th>
+                <th>Slack</th>
+                <th>Copilot</th>
+                <th class="col-smallco rounded-tr-2xl">SmallCo ✓</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td class="font-medium text-neutral-700">中文優先</td>
+                <td class="text-neutral-500">部分</td>
+                <td class="text-neutral-500">否</td>
+                <td class="text-neutral-500">部分</td>
+                <td class="col-smallco">完整</td>
+              </tr>
+              <tr>
+                <td class="font-medium text-neutral-700">LINE 整合</td>
+                <td class="text-neutral-500">否</td>
+                <td class="text-neutral-500">否</td>
+                <td class="text-neutral-500">否</td>
+                <td class="col-smallco">原生支援</td>
+              </tr>
+              <tr>
+                <td class="font-medium text-neutral-700">AI 自動執行</td>
+                <td class="text-neutral-500">否</td>
+                <td class="text-neutral-500">否</td>
+                <td class="text-neutral-500">部分</td>
+                <td class="col-smallco">是</td>
+              </tr>
+              <tr>
+                <td class="font-medium text-neutral-700">需要培訓員工</td>
+                <td class="text-neutral-500">是</td>
+                <td class="text-neutral-500">是</td>
+                <td class="text-neutral-500">是</td>
+                <td class="col-smallco">否</td>
+              </tr>
+              <tr>
+                <td class="font-medium text-neutral-700 rounded-bl-2xl">適合 50 人以下</td>
+                <td class="text-neutral-500">勉強</td>
+                <td class="text-neutral-500">勉強</td>
+                <td class="text-neutral-500">否</td>
+                <td class="col-smallco rounded-br-2xl">專為設計</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
+        <!-- Bottom text -->
+        <p class="reveal text-base md:text-lg text-neutral-700 max-w-[60ch]" style="animation-delay:300ms">
+          我們不是要取代你的工具，我們是讓那些工具，開始替你工作。
+        </p>
+
+      </div>
+    </section>
+
+    <!-- ============================================================
+         SECTION 5 — AUDIENCE
+    ============================================================ -->
+    <section id="audience" class="bg-white py-24 md:py-32">
+      <div class="max-w-7xl mx-auto px-6">
+
+        <!-- Eyebrow -->
+        <p class="reveal font-mono text-xs uppercase tracking-wider text-neutral-500 mb-4">Who Is It For</p>
+
+        <!-- Section heading -->
+        <p class="reveal text-[28px] md:text-[40px] leading-[1.15] tracking-tight max-w-[40ch] mb-12" style="font-weight:550; animation-delay:100ms">
+          <span class="text-neutral-950">你的公司，</span>
+          <span class="text-neutral-500 font-medium"> 符合這些特徵嗎？</span>
+        </p>
+
+        <!-- 3 Persona cards -->
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-2 mb-12">
+
+          <!-- Card 1: 林老闆 -->
+          <div class="reveal card-hover bg-neutral-950/[.05] rounded-2xl ring-1 ring-inset ring-neutral-950/[.05] p-6" style="animation-delay:200ms">
+            <div class="mb-4">
+              <div class="w-10 h-10 rounded-full bg-primary-100 flex items-center justify-center text-lg mb-3">👔</div>
+              <p class="text-xs text-neutral-500 mb-1">林老闆</p>
+              <h3 class="text-lg leading-tight tracking-tight mb-1" style="font-weight:550">15 人電商公司老闆</h3>
+            </div>
+            <div class="space-y-3 text-sm">
+              <div>
+                <p class="text-xs font-mono uppercase tracking-wider text-neutral-400 mb-1">每天在做</p>
+                <p class="text-neutral-700">開會、接電話、審帳、改文案、回 LINE</p>
+              </div>
+              <div>
+                <p class="text-xs font-mono uppercase tracking-wider text-neutral-400 mb-1">最怕聽到</p>
+                <p class="text-neutral-700">「員工問你『這個要怎麼做？』」</p>
+              </div>
+              <div class="pt-2 border-t border-neutral-950/10">
+                <p class="text-xs font-mono uppercase tracking-wider text-primary-600 mb-1">SmallCo 給你</p>
+                <p class="text-neutral-800 font-medium">一個 24 小時不休假的 AI 幕僚</p>
+              </div>
+            </div>
+          </div>
+
+          <!-- Card 2: 小陳 -->
+          <div class="reveal card-hover bg-neutral-950/[.05] rounded-2xl ring-1 ring-inset ring-neutral-950/[.05] p-6" style="animation-delay:300ms">
+            <div class="mb-4">
+              <div class="w-10 h-10 rounded-full bg-primary-100 flex items-center justify-center text-lg mb-3">📋</div>
+              <p class="text-xs text-neutral-500 mb-1">小陳</p>
+              <h3 class="text-lg leading-tight tracking-tight mb-1" style="font-weight:550">3 人行銷團隊 PM</h3>
+            </div>
+            <div class="space-y-3 text-sm">
+              <div>
+                <p class="text-xs font-mono uppercase tracking-wider text-neutral-400 mb-1">每天在做</p>
+                <p class="text-neutral-700">追進度、整理資料、寫報告、催廠商</p>
+              </div>
+              <div>
+                <p class="text-xs font-mono uppercase tracking-wider text-neutral-400 mb-1">最怕聽到</p>
+                <p class="text-neutral-700">「會議結束大家各自解讀」</p>
+              </div>
+              <div class="pt-2 border-t border-neutral-950/10">
+                <p class="text-xs font-mono uppercase tracking-wider text-primary-600 mb-1">SmallCo 給你</p>
+                <p class="text-neutral-800 font-medium">自動把共識變成任務卡的 AI 助理</p>
+              </div>
+            </div>
+          </div>
+
+          <!-- Card 3: Ray -->
+          <div class="reveal card-hover bg-neutral-950/[.05] rounded-2xl ring-1 ring-inset ring-neutral-950/[.05] p-6" style="animation-delay:400ms">
+            <div class="mb-4">
+              <div class="w-10 h-10 rounded-full bg-primary-100 flex items-center justify-center text-lg mb-3">💻</div>
+              <p class="text-xs text-neutral-500 mb-1">Ray</p>
+              <h3 class="text-lg leading-tight tracking-tight mb-1" style="font-weight:550">軟體公司技術負責人</h3>
+            </div>
+            <div class="space-y-3 text-sm">
+              <div>
+                <p class="text-xs font-mono uppercase tracking-wider text-neutral-400 mb-1">每天在做</p>
+                <p class="text-neutral-700">處理技術、同時要懂業務、搞定流程</p>
+              </div>
+              <div>
+                <p class="text-xs font-mono uppercase tracking-wider text-neutral-400 mb-1">最怕聽到</p>
+                <p class="text-neutral-700">「知識留在每個人腦子裡沒有文件化」</p>
+              </div>
+              <div class="pt-2 border-t border-neutral-950/10">
+                <p class="text-xs font-mono uppercase tracking-wider text-primary-600 mb-1">SmallCo 給你</p>
+                <p class="text-neutral-800 font-medium">自動沉澱技術知識的 SOP Brain</p>
+              </div>
+            </div>
+          </div>
+
+        </div>
+
+        <!-- Checklist -->
+        <div class="reveal bg-neutral-50 rounded-2xl p-6 md:p-8 ring-1 ring-neutral-950/10" style="animation-delay:500ms">
+          <p class="text-base font-medium text-neutral-950 mb-4">你們公司符合以下任一項，SmallCo 就值得試試：</p>
+          <div class="grid grid-cols-1 sm:grid-cols-2 gap-1">
+            <div class="checklist-item">
+              <div class="checklist-check"><div class="w-2.5 h-2.5 rounded-sm bg-neutral-300"></div></div>
+              <span class="text-sm text-neutral-700">公司 5-50 人</span>
+            </div>
+            <div class="checklist-item">
+              <div class="checklist-check"><div class="w-2.5 h-2.5 rounded-sm bg-neutral-300"></div></div>
+              <span class="text-sm text-neutral-700">每天用 LINE 處理業務</span>
+            </div>
+            <div class="checklist-item">
+              <div class="checklist-check"><div class="w-2.5 h-2.5 rounded-sm bg-neutral-300"></div></div>
+              <span class="text-sm text-neutral-700">沒有專職 PM 或 COO</span>
+            </div>
+            <div class="checklist-item">
+              <div class="checklist-check"><div class="w-2.5 h-2.5 rounded-sm bg-neutral-300"></div></div>
+              <span class="text-sm text-neutral-700">員工離職過，帶走客戶或知識</span>
+            </div>
+            <div class="checklist-item">
+              <div class="checklist-check"><div class="w-2.5 h-2.5 rounded-sm bg-neutral-300"></div></div>
+              <span class="text-sm text-neutral-700">每個月的內容產出都靠一兩個人扛</span>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ============================================================
+         SECTION 6 — WAITLIST
+    ============================================================ -->
+    <section id="waitlist" class="bg-gradient-waitlist py-24 md:py-32">
+      <div class="max-w-7xl mx-auto px-6">
+        <div class="max-w-[600px] mx-auto text-center">
+
+          <!-- H2 -->
+          <h2
+            class="reveal text-[28px] md:text-[40px] leading-[1.15] tracking-tight text-white text-balance mb-4"
+            style="font-weight:550"
+          >
+            準備好讓 AI 替你管公司了嗎？
+          </h2>
+
+          <!-- Lead -->
+          <p class="reveal text-base text-white/80 max-w-[40ch] mx-auto mb-10 leading-relaxed" style="animation-delay:100ms">
+            加入等候名單，成為最早使用 SmallCo 的那批人。前 100 名早鳥享專屬優惠，名額有限。
+          </p>
+
+          <!-- Benefits grid -->
+          <div class="reveal grid grid-cols-1 sm:grid-cols-2 gap-3 mb-10 text-left" style="animation-delay:200ms">
+            <div class="flex items-start gap-3">
+              <span class="mt-0.5 flex-shrink-0 w-5 h-5 rounded-full bg-primary-400 flex items-center justify-center">
+                <svg width="12" height="12" viewBox="0 0 12 12" fill="none"><path d="M2 6l3 3 5-5" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+              </span>
+              <span class="text-sm text-white/90">前 3 個月免費使用</span>
+            </div>
+            <div class="flex items-start gap-3">
+              <span class="mt-0.5 flex-shrink-0 w-5 h-5 rounded-full bg-primary-400 flex items-center justify-center">
+                <svg width="12" height="12" viewBox="0 0 12 12" fill="none"><path d="M2 6l3 3 5-5" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+              </span>
+              <span class="text-sm text-white/90">優先客服支援（非機器人）</span>
+            </div>
+            <div class="flex items-start gap-3">
+              <span class="mt-0.5 flex-shrink-0 w-5 h-5 rounded-full bg-primary-400 flex items-center justify-center">
+                <svg width="12" height="12" viewBox="0 0 12 12" fill="none"><path d="M2 6l3 3 5-5" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+              </span>
+              <span class="text-sm text-white/90">專屬上線輔導（1 對 1 視訊）</span>
+            </div>
+            <div class="flex items-start gap-3">
+              <span class="mt-0.5 flex-shrink-0 w-5 h-5 rounded-full bg-primary-400 flex items-center justify-center">
+                <svg width="12" height="12" viewBox="0 0 12 12" fill="none"><path d="M2 6l3 3 5-5" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+              </span>
+              <span class="text-sm text-white/90">早鳥永久定價（上線後不調漲）</span>
+            </div>
+          </div>
+
+          <!-- CTA button -->
+          <div class="reveal" style="animation-delay:300ms">
+            <a
+              href="#waitlist"
+              class="btn-primary inline-flex items-center justify-center bg-white text-neutral-950 rounded-full px-8 h-[48px] text-base font-semibold mb-3 shadow-warm-md"
+            >
+              加入 LINE 等候名單 →
+            </a>
+            <p class="text-xs text-white/60 mb-2">點擊後加入官方 LINE，立即確認名額</p>
+            <p class="text-xs text-white/40">不會有垃圾訊息 · 隨時可退出 · 完全免費加入</p>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================================================
+         SECTION 7 — ABOUT
+    ============================================================ -->
+    <section id="about" class="bg-white py-24 md:py-32">
+      <div class="max-w-7xl mx-auto px-6">
+
+        <!-- Eyebrow -->
+        <p class="reveal font-mono text-xs uppercase tracking-wider text-neutral-500 mb-4">About Us</p>
+
+        <!-- Section heading -->
+        <p class="reveal text-[28px] md:text-[40px] leading-[1.15] tracking-tight max-w-[40ch] mb-12" style="font-weight:550; animation-delay:100ms">
+          <span class="text-neutral-950">我們也是中小企業，</span>
+          <span class="text-neutral-500 font-medium"> 我們懂你的痛。SmallCo 由一群在台灣本土創業、做過 B2B 服務的人建立。我們見過太多老闆，一天要扮演十個角色。</span>
+        </p>
+
+        <!-- Stats row -->
+        <div class="reveal grid grid-cols-2 md:grid-cols-4 divide-x divide-neutral-950/10 border border-neutral-950/10 rounded-2xl overflow-hidden bg-neutral-50 mb-12" style="animation-delay:200ms">
+          <div class="p-6 md:p-8 text-center">
+            <p class="text-4xl md:text-5xl font-normal text-neutral-950 stat-number" data-target="171.5" data-suffix="萬" data-decimal="1">171.5萬</p>
+            <p class="text-sm text-neutral-600 mt-1">台灣中小企業</p>
+          </div>
+          <div class="p-6 md:p-8 text-center">
+            <p class="text-4xl md:text-5xl font-normal text-neutral-950 stat-number" data-target="98" data-suffix="%">98%</p>
+            <p class="text-sm text-neutral-600 mt-1">尚無完整運營系統</p>
+          </div>
+          <div class="p-6 md:p-8 text-center">
+            <p class="text-4xl md:text-5xl font-normal text-neutral-950">3</p>
+            <p class="text-xs text-neutral-400 mt-0.5">分鐘</p>
+            <p class="text-sm text-neutral-600 mt-1">完成基本設定</p>
+          </div>
+          <div class="p-6 md:p-8 text-center">
+            <p class="text-4xl md:text-5xl font-normal text-neutral-950">0</p>
+            <p class="text-xs text-neutral-400 mt-0.5">元</p>
+            <p class="text-sm text-neutral-600 mt-1">早鳥前 3 個月</p>
+          </div>
+        </div>
+
+        <!-- Body text -->
+        <div class="reveal max-w-[65ch]" style="animation-delay:300ms">
+          <p class="text-base text-neutral-700 leading-relaxed mb-4">
+            台灣有 171.5 萬家中小企業，98% 以上缺乏數位化運營工具。
+            我們不是要把你變成科技公司，而是讓科技悄悄幫你處理雜事。
+          </p>
+          <p class="text-base text-neutral-700 leading-relaxed">
+            SyncOS 是我們對台灣中小企業的承諾：讓你花時間在真正重要的事上，其他的，交給 AI。
+          </p>
+        </div>
+
+      </div>
+    </section>
+
+  </main>
+
+  <!-- ============================================================
+       FOOTER
+  ============================================================ -->
+  <footer class="bg-neutral-950 py-16" aria-label="頁尾">
+    <div class="max-w-7xl mx-auto px-6">
+
+      <!-- 4 col grid -->
+      <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-10 mb-10">
+
+        <!-- Col 1: Logo + tagline -->
+        <div>
+          <a href="#hero" class="flex items-center gap-2 mb-3" aria-label="SmallCo 首頁">
+            <span class="inline-flex items-center justify-center w-7 h-7 rounded-md bg-primary-600 text-white text-xs font-bold tracking-tight">SC</span>
+            <span class="text-sm font-semibold text-white tracking-tight">SmallCo</span>
+          </a>
+          <p class="text-xs text-neutral-500 leading-relaxed">台灣本土 AI 協作平台</p>
+        </div>
+
+        <!-- Col 2: 產品 -->
+        <div>
+          <p class="text-xs font-mono uppercase tracking-wider text-neutral-500 mb-4">產品</p>
+          <ul class="space-y-2.5">
+            <li><a href="#features" class="text-xs text-neutral-400 hover:text-white transition-colors">五大模組</a></li>
+            <li><a href="#waitlist" class="text-xs text-neutral-400 hover:text-white transition-colors">等候名單</a></li>
+            <li><a href="#waitlist" class="text-xs text-neutral-400 hover:text-white transition-colors">早鳥優惠</a></li>
+          </ul>
+        </div>
+
+        <!-- Col 3: 資源 -->
+        <div>
+          <p class="text-xs font-mono uppercase tracking-wider text-neutral-500 mb-4">資源</p>
+          <ul class="space-y-2.5">
+            <li><a href="#audience" class="text-xs text-neutral-400 hover:text-white transition-colors">常見問題</a></li>
+            <li><a href="#about" class="text-xs text-neutral-400 hover:text-white transition-colors">產品更新</a></li>
+            <li><span class="text-xs text-neutral-600 cursor-not-allowed">使用條款</span></li>
+            <li><span class="text-xs text-neutral-600 cursor-not-allowed">隱私政策</span></li>
+          </ul>
+        </div>
+
+        <!-- Col 4: 聯絡 -->
+        <div>
+          <p class="text-xs font-mono uppercase tracking-wider text-neutral-500 mb-4">聯絡</p>
+          <ul class="space-y-2.5">
+            <li>
+              <a href="#waitlist" class="text-xs text-neutral-400 hover:text-white transition-colors flex items-center gap-1.5">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor" class="text-green-400 shrink-0"><path d="M12 2C6.477 2 2 6.477 2 12c0 1.817.5 3.518 1.358 4.978L2.078 21.9l5.002-1.267A9.953 9.953 0 0012 22c5.523 0 10-4.477 10-10S17.523 2 12 2z"/></svg>
+                LINE 官方帳號
+              </a>
+            </li>
+            <li>
+              <a href="mailto:hello@syncOS.ai" class="text-xs text-neutral-400 hover:text-white transition-colors">
+                hello@syncOS.ai
+              </a>
+            </li>
+          </ul>
+        </div>
+
+      </div>
+
+      <!-- Divider + copyright -->
+      <div class="border-t border-neutral-50/10 pt-6">
+        <p class="text-xs text-neutral-600">© 2026 SyncOS. All rights reserved.</p>
+      </div>
+
+    </div>
+  </footer>
+
+  <!-- ============================================================
+       JAVASCRIPT
+  ============================================================ -->
+  <script>
+    // ──────────────────────────────────────────────
+    // 1. Hamburger menu
+    // ──────────────────────────────────────────────
+    const hamburger = document.getElementById('hamburger');
+    const mobileMenu = document.getElementById('mobile-menu');
+
+    hamburger.addEventListener('click', () => {
+      const isOpen = mobileMenu.classList.toggle('open');
+      hamburger.setAttribute('aria-expanded', isOpen.toString());
+    });
+
+    // Close mobile menu on link click
+    mobileMenu.querySelectorAll('a').forEach(link => {
+      link.addEventListener('click', () => {
+        mobileMenu.classList.remove('open');
+        hamburger.setAttribute('aria-expanded', 'false');
+      });
+    });
+
+    // ──────────────────────────────────────────────
+    // 2. Intersection Observer — staggered fade-up
+    // ──────────────────────────────────────────────
+    const revealElements = document.querySelectorAll('.reveal');
+
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('visible');
+          observer.unobserve(entry.target);
+        }
+      });
+    }, {
+      threshold: 0.1,
+      rootMargin: '0px 0px -40px 0px'
+    });
+
+    revealElements.forEach(el => observer.observe(el));
+
+    // ──────────────────────────────────────────────
+    // 3. Stats CountUp
+    // ──────────────────────────────────────────────
+    function animateCount(el) {
+      const target = parseFloat(el.dataset.target);
+      const suffix = el.dataset.suffix || '';
+      const decimals = parseInt(el.dataset.decimal || '0');
+      const duration = 1800;
+      const start = performance.now();
+
+      function step(now) {
+        const elapsed = now - start;
+        const progress = Math.min(elapsed / duration, 1);
+        // Ease out cubic
+        const eased = 1 - Math.pow(1 - progress, 3);
+        const value = target * eased;
+
+        el.textContent = value.toFixed(decimals) + suffix;
+
+        if (progress < 1) {
+          requestAnimationFrame(step);
+        } else {
+          el.textContent = target.toFixed(decimals) + suffix;
+        }
+      }
+
+      requestAnimationFrame(step);
+    }
+
+    const statNumbers = document.querySelectorAll('.stat-number[data-target]');
+    const statObserver = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          animateCount(entry.target);
+          statObserver.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.5 });
+
+    statNumbers.forEach(el => statObserver.observe(el));
+
+    // ──────────────────────────────────────────────
+    // 4. Reduced motion check
+    // ──────────────────────────────────────────────
+    const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    if (prefersReducedMotion) {
+      // Make all reveal elements immediately visible
+      revealElements.forEach(el => {
+        el.style.opacity = '1';
+        el.style.transform = 'none';
+      });
+    }
+  </script>
+
+</body>
+</html>
